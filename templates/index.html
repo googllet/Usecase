@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ทำนายข้อมูลสินเชื่อ</title>
+</head>
+<body>
+    <h2>กรอกข้อมูลเพื่อทำนาย</h2>
+    <form action="/predict" method="post">
+        <label>Total Amount:</label><br>
+        <input type="text" name="Total_Amount"><br><br>
+
+        <label>Total Amount to Repay:</label><br>
+        <input type="text" name="Total_Amount_to_Repay"><br><br>
+
+        <label>Amount Funded By Lender:</label><br>
+        <input type="text" name="Amount_Funded_By_Lender"><br><br>
+
+        <!-- เพิ่ม field เพิ่มเติมตามฟีเจอร์ที่ใช้ในโมเดล -->
+
+        <button type="submit">ทำนาย</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
